@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: "{{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv"
 
 requirements:
   host:
@@ -41,5 +41,10 @@ about:
     read more in Python 3.7 contextvars documentation.
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/48409
+    reason: Dependency for opentelemetry-api
+    recipe-maintainers:
+    - ianaobi
   recipe-maintainers:
     - carlodri
